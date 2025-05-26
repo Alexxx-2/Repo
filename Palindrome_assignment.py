@@ -1,31 +1,25 @@
 class Solution:
     def __init__(self):
         self.stack = []
-        self.queue = []
 
     def push_character(self, ch):
         self.stack.append(ch)
 
-    def enqueue_character(self, ch):
-        self.queue.append(ch)
-
     def pop_character(self):
         return self.stack.pop()
-
-    def dequeue_character(self):
-        return self.queue.pop(0)
 
 
 def check_palindrome(s):
     obj = Solution()
 
+
     for char in s:
         obj.push_character(char)
-        obj.enqueue_character(char)
+
 
     is_palindrome = True
-    for _ in range(len(s)):
-        if obj.pop_character() != obj.dequeue_character():
+    for i in range(len(s)):
+        if s[i] != obj.pop_character():
             is_palindrome = False
             break
 
