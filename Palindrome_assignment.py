@@ -1,10 +1,7 @@
-from collections import deque
-
-
 class Solution:
     def __init__(self):
         self.stack = []
-        self.queue = deque()
+        self.queue = []
 
     def push_character(self, ch):
         self.stack.append(ch)
@@ -16,7 +13,7 @@ class Solution:
         return self.stack.pop()
 
     def dequeue_character(self):
-        return self.queue.popleft()
+        return self.queue.pop(0)
 
 
 def check_palindrome(s):
@@ -39,10 +36,10 @@ def check_palindrome(s):
 
 
 def main():
-    s = input(" Enter a word to check if it is a palindrome: ").strip()
+    s = input("Enter a word to check if it is a palindrome: ").strip()
 
     if not s.isalpha():
-        print(" Please enter a valid word.")
+        print("Please enter a valid word.")
         return
 
     print(check_palindrome(s.lower()))
